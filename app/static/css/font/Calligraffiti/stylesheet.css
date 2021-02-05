@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Calligraffiti';
+    src: url('font/Calligraffiti/Calligraffiti.woff2') format('woff2'),
+        url('font/Calligraffiti/Calligraffiti.woff') format('woff'),
+        url('font/Calligraffiti/Calligraffiti.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

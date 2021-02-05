@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Gondola SD';
+    src: url('font/Gondola/GondolaSD.woff2') format('woff2'),
+        url('font/Gondola/GondolaSD.woff') format('woff'),
+        url('font/Gondola/GondolaSD.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

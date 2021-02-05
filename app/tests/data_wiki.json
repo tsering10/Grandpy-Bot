@@ -1,0 +1,18 @@
+{
+    "batchcomplete": "",
+    "warnings": {
+        "extracts": {
+            "*": "HTML may be malformed and/or unbalanced and may omit inline images. Use at your own risk. Known problems are listed at https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:TextExtracts#Caveats."
+        }
+    },
+    "query": {
+        "pages": {
+            "4338589": {
+                "pageid": 4338589,
+                "ns": 0,
+                "title": "OpenClassrooms",
+                "extract": "<p class=\"mw-empty-elt\">\n</p>\n<p><b>OpenClassrooms</b> est un site web de formation en ligne qui propose \u00e0 ses membres des cours certifiants et des parcours d\u00e9bouchant sur des m\u00e9tiers en croissance. Ses contenus sont r\u00e9alis\u00e9s en interne, par des \u00e9coles, des universit\u00e9s, des entreprises partenaires comme Microsoft ou IBM, ou historiquement par des b\u00e9n\u00e9voles. Jusqu'en 2018, n'importe quel membre du site pouvait \u00eatre auteur, via un outil nomm\u00e9 \u00ab\u00a0interface de r\u00e9daction\u00a0\u00bb puis \u00ab\u00a0Course Lab\u00a0\u00bb. De nombreux cours sont issus de la communaut\u00e9, mais ne sont plus mis en avant. Initialement orient\u00e9e autour de la programmation informatique, la plate-forme couvre depuis 2013 des th\u00e9matiques plus larges tels que le marketing, l'entrepreneuriat et les sciences.\n</p><p>Cr\u00e9\u00e9 en 1999 sous le nom de <b>Site du Z\u00e9ro</b>, il se forme essentiellement sur la base de contributions de b\u00e9n\u00e9voles proposant des tutoriels vulgaris\u00e9s avec un ton l\u00e9ger portant sur des sujets informatiques divers. \u00c0 la suite du succ\u00e8s et de la fin des \u00e9tudes des g\u00e9rants, l'entreprise Simple IT, renomm\u00e9e ensuite OpenClassrooms, est fond\u00e9e dans le but de p\u00e9renniser le site. Celle-ci base son mod\u00e8le \u00e9conomique sur la d\u00e9livrance de certifications payantes et propose un abonnement pour \u00eatre suivi par un mentor<sup class=\"reference cite_virgule\">,</sup>. Suite \u00e0 ces changements, des utilisateurs cr\u00e9ent un site web aux buts similaires, dont les auteurs et l'association le g\u00e9rant sont uniquement b\u00e9n\u00e9voles et ne propose pas de certifications (Zeste de Savoir).\n</p>"
+            }
+        }
+    }
+}

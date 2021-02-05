@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'SF Cartoonist Hand';
+    src: url('font/Cartoonist/SFCartoonistHand.woff2') format('woff2'),
+        url('font/Cartoonist/SFCartoonistHand.woff') format('woff'),
+        url('font/Cartoonist/SFCartoonistHand.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
