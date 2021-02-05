@@ -1,4 +1,5 @@
 import urllib.request
+from typing import List
 from urllib.error import HTTPError
 import json
 from app.starter import app
@@ -14,7 +15,7 @@ class MediaWiki:
 
     """
 
-    def __init__(self, latitude, longitude, query_key_string):
+    def __init__(self, latitude: float, longitude: float, query_key_string: List[str]):
         """
         The constructor for MediaWiki class
 
