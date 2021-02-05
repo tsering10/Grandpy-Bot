@@ -119,7 +119,7 @@ function button_papy_link() {
 	global_user_request.appendChild(figure_user);
 	global_user_request.appendChild(user_request);
 	dialogue.appendChild(global_user_request);
-	var url = encodeURI("http://127.0.0.1:5000/results/?query="+request);
+	var url = encodeURI("https://tashi-grandpy.herokuapp.com//results/?query="+request);
 	ajaxGet(url, chatBox);
 
 }
