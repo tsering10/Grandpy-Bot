@@ -13,7 +13,7 @@ class GoogleApi:
         This is a class for checking google map api request and get lat, lon and address
     """
 
-    def __init__(self, url_key_words) -> str:
+    def __init__(self, url_key_words: str):
         """
         The constructor for GoogleApi class
 
@@ -53,7 +53,7 @@ class GoogleApi:
             logger.error(error)
             return False
 
-    def gmap_address(self, query_keywords):
+    def gmap_address(self, query_keywords: str):
         """ returns true if the request is good and then get the respective values else false"""
         if self.gmap_response():
             if 'status' in self.data.keys() and self.data['status'] == "OK":
