@@ -2,12 +2,13 @@ from unidecode import unidecode
 import re
 import json
 import os
+from typing import List, Set, Dict, Tuple, Optional
 
 
 class WordParser:
     """ This class is used to cut the sentence into words that you will then analyze to keep only the keywords"""
 
-    def __init__(self, query):
+    def __init__(self, query:str):
         """
         The constructor for WordParser class
 
@@ -27,10 +28,10 @@ class WordParser:
         query = re.sub("(\\d|\\W)+", " ", self.query.lower()).strip()
         return list(query.split(" "))
 
-    def parser(self, query_keywords_list):
+    def parser(self, query_keywords_list: List[str]):
         # get keywords
         return [w for w in self.query_keywords_list if w not in self.stop_words]
 
-    def key_word_string(self, query_keys):
+    def key_word_string(self, query_keys: List[str]):
         # get keyword in string
         return ','.join(self.query_keys)

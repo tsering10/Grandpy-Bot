@@ -40,3 +40,6 @@ class TestGoogleApi:
         assert (type(self.google_Api_Object.latitude) is float)
         assert self.google_Api_Object.latitude == 48.8747265
         assert self.google_Api_Object.longitude == 2.3505517
+
+    def test_get_response_success(self,monkeypatch):
+        pass

@@ -4,6 +4,7 @@ from urllib.error import HTTPError
 import json
 from app.starter import app
 import logging
+from typing import List, Set, Dict, Tuple, Optional
 
 logger = logging.getLogger()
 
