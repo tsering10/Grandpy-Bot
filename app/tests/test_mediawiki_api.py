@@ -1,7 +1,7 @@
 from ..utils.mediawiki_api import MediaWiki
-import urllib.request  # import urllib for request/response simulation
+import urllib.request  
 from .. import app
-from io import BytesIO  # to create an object where it will be possible call the read() method
+from io import BytesIO  
 import json
 
 

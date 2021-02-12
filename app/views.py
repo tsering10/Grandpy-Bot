@@ -1,10 +1,8 @@
 # -*-coding:utf-8-*-
 import json
-
 from flask import render_template, request
 from flask import jsonify
-from app.utils import word_parser, googlemaps_api, mediawiki_api  # , answer_strings
-
+from app.utils import word_parser, googlemaps_api, mediawiki_api 
 from .starter import app
 from .utils.answer_strings import AnswerString
 
@@ -53,7 +51,7 @@ def results():
             return jsonify(response)
 
     else:
-        # no response
+        # No response
         response = {"response": {"gmap": "NO_RESULT", "wiki": "NO_RESULT",
                                  "Gp_answer": AnswerString.geo_no_response_answer_string.value}}
         return jsonify(response)

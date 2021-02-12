@@ -1,4 +1,3 @@
-# CONFIGURATION VARIABLES
 import os 
 import random, string
 import logging
@@ -10,7 +9,7 @@ GOOGLE_JS_KEY = "AIzaSyCijZFozLf948SNQzcGVkRaPZ-8wymgkkk"
 # to get your GEO API key go to https://developers.google.com/maps/documentation/geocoding/get-api-key
 GOOGLE_GEO_KEY = "AIzaSyC-DXpHl3cl41Gn6nAAF-FTF4NVJxZgSI4"
 
-
+# config for logging
 logging_config = dict(
     version=1,
     formatters={
