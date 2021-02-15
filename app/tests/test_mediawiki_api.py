@@ -10,7 +10,7 @@ class TestMediaWiki:
     def setup_method(self):
         """ setup_method function called during the TestMediaWiki class test """
         self.wiki_Api_Object = MediaWiki(48.8747578, 2.350564700000001, ['openclassrooms'])
-
+    
     def test_instance(self):
         """Test success if the  returned  object is a valid instance of GoogleApi object"""
         assert (isinstance(self.wiki_Api_Object, MediaWiki))
@@ -33,4 +33,3 @@ class TestMediaWiki:
 
         # expected returned values
         assert self.wiki_Api_Object.sentences_return() is True
-        # assert self.wiki_Api_Object.page_id == 4338589

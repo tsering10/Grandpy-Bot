@@ -4,7 +4,6 @@ import json
 import os
 from typing import List, Set, Dict, Tuple, Optional
 
-
 class WordParser:
     """ This class is used to cut the sentence into words that you will then analyze to keep only the keywords"""
 
@@ -33,7 +32,7 @@ class WordParser:
         query = re.sub("(\\d|\\W)+", " ", self.query.lower()).strip()
         return list(query.split(" "))
 
-    def parser(self, query_keywords_list: List[str]):
+    def parser(self, query_keywords_list: List[str]) -> List[str]:
         # get keywords
         """
         This method remove the french stop words. They can safely be ignored without sacrificing the meaning of the sentence
@@ -46,7 +45,7 @@ class WordParser:
         """
         return [w for w in self.query_keywords_list if w not in self.stop_words]
 
-    def key_word_string(self, query_keys: List[str]):
+    def key_word_string(self, query_keys: List[str]) -> str:
         # get keyword in string
         """
         This method is use to get keywords in string
