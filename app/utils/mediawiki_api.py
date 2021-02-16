@@ -1,5 +1,4 @@
 import urllib.request
-from typing import List
 from urllib.error import HTTPError
 import json
 from app.starter import app
