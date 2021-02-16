@@ -82,7 +82,7 @@ class MediaWiki:
             self.page_id = 0
 
     #
-    def wiki_page_finder(self):
+    def wiki_page_finder(self) -> bool:
         """ function that finds the Wiki page by key words and coordinates """
         # by key words function
         self.wiki_search()
@@ -98,7 +98,7 @@ class MediaWiki:
             return True
         return False
 
-    def get_extract(self):
+    def get_extract(self) -> bool:
         """ This method is used to extract the information from media wiki api"""
         if self.wiki_page_finder():
             page_searching_url = f"https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=1&explaintext=1&exsentences=2&pageids={self.page_id}"
@@ -124,7 +124,7 @@ class MediaWiki:
                 logger.error(error)
                 return False
 
-    def sentences_return(self):
+    def sentences_return(self) -> bool:
         """ Returns the two first sentences of Wiki page """
         # if content found
         if self.get_extract():

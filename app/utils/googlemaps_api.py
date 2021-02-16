@@ -26,7 +26,7 @@ class GoogleApi:
         self.latitude = 0
         self.data = {}
 
-    def gmap_response(self):
+    def gmap_response(self) -> bool:
         """ Returns True or False if the request to google map is success or not"""
         if self.key is not None:
             endpoint = f"https://maps.googleapis.com/maps/api/geocode/json?address={self.query_key_string}&key={self.key}"
@@ -53,7 +53,7 @@ class GoogleApi:
             logger.error(error)
             return False
 
-    def gmap_address(self, query_keywords: str):
+    def gmap_address(self, query_keywords: str)  -> bool:
         """ returns true if the request is good and then get the respective values else false"""
         if self.gmap_response():
             if 'status' in self.data.keys() and self.data['status'] == "OK":

@@ -22,7 +22,7 @@ class WordParser:
         self.query_keys = self.parser(self.query_keywords_list)
         self.query_key_string = self.key_word_string(self.query_keys)
 
-    def pre_process(self):
+    def pre_process(self) -> List[str]:
         """
         This method removes special characters 
         
