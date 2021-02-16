@@ -10,6 +10,8 @@ class TestMediaWiki:
     def setup_method(self):
         """ setup_method function called during the TestMediaWiki class test """
         self.wiki_Api_Object = MediaWiki(48.8747578, 2.350564700000001, ['openclassrooms'])
+        with open("data_wiki.json", "r", encoding="utf8") as mockfile:
+            self.mediawiki_extracts_mock_data = json.load(mockfile)
     
     def test_instance(self):
         """Test success if the  returned  object is a valid instance of GoogleApi object"""
@@ -20,16 +22,18 @@ class TestMediaWiki:
         self.wiki_Api_Object.wiki_search()
         assert self.wiki_Api_Object.page_id == 4338589
 
-    def test_geo(self, monkeypatch):
-        with open("mediawiki_api_data.json", "r") as f:
-            self.returned_data = json.load(f)
-            self.returned_dumps = json.dumps(self.returned_data)
 
-        def mock_return(request):
-            return BytesIO(self.returned_dumps.encode())
+    def test_get_extracts(self, monkeypatch):
+        """
+        :Test success conditions:
+        The Extracts API returns a JSON result fitting expectations.
+        Mocks http request via urllib.request module
+        IMPORTANT : random_place must be set to 0 in the instanciation ↑
+        """
+        def mockreturn(url):
+            return BytesIO(json.dumps(self.mediawiki_extracts_mock_data).encode())
 
-        # monkeypatch.setattr() method to change the returned value
-        monkeypatch.setattr(urllib.request, 'urlopen', mock_return)
+        monkeypatch.setattr(urllib.request, 'urlopen', mockreturn)
+        self.wiki_Api_Object.sentences_return()
 
-        # expected returned values
-        assert self.wiki_Api_Object.sentences_return() is True
+        assert self.mediawiki_extracts_mock_data == self.wiki_Api_Object.data
