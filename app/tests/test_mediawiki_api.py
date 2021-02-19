@@ -37,3 +37,8 @@ class TestMediaWiki:
         self.wiki_Api_Object.sentences_return()
 
         assert self.mediawiki_extracts_mock_data == self.wiki_Api_Object.data
+
+    def test_wiki_finder(self):
+        self.wiki_Api_Object.geo_search()
+        self.wiki_Api_Object.sentences_return()
+        assert self.wiki_Api_Object.wiki_page_finder() is True
