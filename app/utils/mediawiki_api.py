@@ -80,7 +80,7 @@ class MediaWiki:
         else:
             self.page_id = 0
 
-    #
+    
     def wiki_page_finder(self) -> bool:
         """ function that finds the Wiki page by key words and coordinates """
         # by key words function
