@@ -22,7 +22,6 @@ class TestMediaWiki:
         self.wiki_Api_Object.wiki_search()
         assert self.wiki_Api_Object.page_id == 4338589
 
-
     def test_get_extracts(self, monkeypatch):
         """
         Test success conditions:
