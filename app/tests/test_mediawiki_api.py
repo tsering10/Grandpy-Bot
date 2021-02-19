@@ -25,10 +25,9 @@ class TestMediaWiki:
 
     def test_get_extracts(self, monkeypatch):
         """
-        :Test success conditions:
+        Test success conditions:
         The Extracts API returns a JSON result fitting expectations.
         Mocks http request via urllib.request module
-        IMPORTANT : random_place must be set to 0 in the instanciation ↑
         """
         def mockreturn(url):
             return BytesIO(json.dumps(self.mediawiki_extracts_mock_data).encode())
