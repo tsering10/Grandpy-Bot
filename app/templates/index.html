@@ -19,8 +19,8 @@
   <!-- import css -->
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}">
   <!-- import javascript -->
-   <script type="text/javascript" src="{{ url_for('static', filename='js/init_map.js') }}"></script>
-   <script type="text/javascript" src="{{ url_for('static', filename='js/chatbox.js') }}"></script>
+   <script  src="{{ url_for('static', filename='js/init_map.js') }}"></script>
+   <script  src="{{ url_for('static', filename='js/chatbox.js') }}"></script>
 
 </head>
 <body>
@@ -68,7 +68,7 @@
   <!-- Googlemap initialisation -->
   <script src="https://maps.googleapis.com/maps/api/js?key={{ gmap_api_key }}&callback=initMap&libraries=&v=weekly" defer ></script>
   <!-- Add event listener on form -->
-  <script type="text/javascript" src="{{ url_for('static', filename='js/init_page.js') }}"></script>
+  <script  src="{{ url_for('static', filename='js/init_page.js') }}"></script>
 </body>
 </html>
 

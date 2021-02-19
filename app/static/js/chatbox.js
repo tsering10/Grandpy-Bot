@@ -151,7 +151,7 @@ function noQuery()
 
 // AJAX request using build-in XMLHttpRequest object
 function ajaxGet(url, callback) {
-
+	// Creates a new XMLHttpRequest object
 	var req = new XMLHttpRequest();
 	req.open("GET", url);
 	req.addEventListener("load", function() {

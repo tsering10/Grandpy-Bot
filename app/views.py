@@ -1,8 +1,7 @@
 # -*-coding:utf-8-*-
-import json
 from flask import render_template, request
 from flask import jsonify
-from app.utils import word_parser, googlemaps_api, mediawiki_api 
+from app.utils import word_parser, googlemaps_api, mediawiki_api
 from .starter import app
 from .utils.answer_strings import AnswerString
 
@@ -14,8 +13,8 @@ def index():
     # GOOGLE_JS_KEY to load google map
     return render_template('index.html', gmap_api_key=app.config['GOOGLE_JS_KEY'])
 
-#
-@app.route('/results/', methods=['GET','POST'])
+
+@app.route('/results/', methods=['GET', 'POST'])
 def results():
     # Get the query
     query = request.args.get('query')
@@ -23,17 +22,17 @@ def results():
     query_parser = word_parser.WordParser(query)
 
     # create an object to call the google map geocoding API
-    google_Api_Object = googlemaps_api.GoogleApi(query_parser.query_key_string)
+    google_api_object = googlemaps_api.GoogleApi(query_parser.query_key_string)
     # create an object to get all the answer strings
-    if google_Api_Object.gmap_address(google_Api_Object.query_key_string) is True:
-        address_value = google_Api_Object.address
-        longitude = google_Api_Object.longitude
-        latitude = google_Api_Object.latitude
+    if google_api_object.gmap_address(google_api_object.query_key_string) is True:
+        address_value = google_api_object.address
+        longitude = google_api_object.longitude
+        latitude = google_api_object.latitude
         # create an object to call Mediawiki api
-        wiki_Api_Object = mediawiki_api.MediaWiki(latitude, longitude, query_parser.query_key_string)
-        if wiki_Api_Object.sentences_return() is True:
-            wiki_result = wiki_Api_Object.wiki_result
-            wiki_id = wiki_Api_Object.page_id
+        wiki_api_object = mediawiki_api.MediaWiki(latitude, longitude, query_parser.query_key_string)
+        if wiki_api_object.sentences_return() is True:
+            wiki_result = wiki_api_object.wiki_result
+            wiki_id = wiki_api_object.page_id
             # create a json response object if the response it ok
             response = {"response": {"Gp_answer_gmap": AnswerString.geo_answer_string.value,
                                      "Gp_answer_wiki": AnswerString.wiki_answer_string.value,

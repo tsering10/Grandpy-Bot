@@ -1,9 +1,9 @@
 import urllib.request
 from urllib.error import HTTPError
 import json
-from app.starter import app
 import logging
-from typing import List, Set, Dict, Tuple, Optional
+from typing import List
+from json.decoder import JSONDecodeError
 
 logger = logging.getLogger()
 
@@ -36,19 +36,9 @@ class MediaWiki:
             content = urllib.request.urlopen(search_url)
             self.data = json.loads(content.read().decode("utf8"))
 
-        except HTTPError as e:
-            traceError = 'Mediawiki: search API request error: {}'.format(e)
-            logger.error(traceError)
-        except KeyError as error:
-            # Output expected KeyErrors.
+        except (HTTPError, KeyError, IndexError, JSONDecodeError) as error:
+            # Output expected error
             logger.error(error)
-        except IndexError as error:
-            # Output expected IndexErrors.
-            logger.error(error)
-        except json.decoder.JSONDecodeError as error:
-            # Output expected json decode errors.
-            logger.error(error)
-
         if "search" in self.data['query'].keys():
             if len(self.data['query']['search']) > 0:
                 self.page_id = self.data['query']['search'][0]['pageid']
@@ -62,27 +52,22 @@ class MediaWiki:
         try:
             content = urllib.request.urlopen(mediawiki_url_coord)
             self.data = json.loads(content.read().decode('utf-8'))
-        except HTTPError as e:
-            traceError = 'Mediawiki: geo search API request error : {}'.format(e)
-            logger.error(traceError)
-        except KeyError as error:
-            # Output expected KeyErrors.
+        except (HTTPError, KeyError, IndexError, JSONDecodeError) as error:
+            # Output expected error
             logger.error(error)
-        except IndexError as error:
-            # Output expected IndexErrors.
-            logger.error(error)
-        except json.decoder.JSONDecodeError as error:
-            # Output expected json decode errors.
-            logger.error(error)
-
         if "geosearch" in self.data['query'].keys() and len(self.data['query']['geosearch']) > 0:
             self.page_id = self.data['query']['geosearch'][0]['pageid']
         else:
             self.page_id = 0
 
-    
     def wiki_page_finder(self) -> bool:
-        """ function that finds the Wiki page by key words and coordinates """
+        """
+        This method finds the Wiki page by key words and coordinates
+
+        Returns:
+            bool : true or false
+
+        """
         # by key words function
         self.wiki_search()
         # if the research by key words produces no results
@@ -106,25 +91,18 @@ class MediaWiki:
                 self.data = json.loads(content.read().decode("utf8"))
                 return True
 
-            except HTTPError as e:
-                traceError = "MediaWiki API error {} in page id finder".format(e)
-                logger.error(traceError)
-                return False
-            except KeyError as error:
-                # Output expected KeyErrors.
-                logger.error(error)
-                return False
-            except IndexError as error:
-                # Output expected IndexErrors.
-                logger.error(error)
-                return False
-            except json.decoder.JSONDecodeError as error:
-                # Output expected json decode errors.
+            except (HTTPError, KeyError, IndexError, JSONDecodeError) as error:
+                # Output expected error
                 logger.error(error)
                 return False
 
     def sentences_return(self) -> bool:
-        """ Returns the two first sentences of Wiki page """
+        """
+        This method give the two first sentences of wiki page
+
+        Returns:
+            bool : true or false
+        """
         # if content found
         if self.get_extract():
             if "query" in self.data.keys():

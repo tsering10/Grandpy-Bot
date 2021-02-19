@@ -2,12 +2,13 @@ from unidecode import unidecode
 import re
 import json
 import os
-from typing import List, Set, Dict, Tuple, Optional
+from typing import List
+
 
 class WordParser:
     """ This class is used to cut the sentence into words that you will then analyze to keep only the keywords"""
 
-    def __init__(self, query:str):
+    def __init__(self, query: str):
         """
         The constructor for WordParser class
 
@@ -33,7 +34,6 @@ class WordParser:
         return list(query.split(" "))
 
     def parser(self, query_keywords_list: List[str]) -> List[str]:
-        # get keywords
         """
         This method remove the french stop words. They can safely be ignored without sacrificing the meaning of the sentence
 
@@ -46,7 +46,6 @@ class WordParser:
         return [w for w in self.query_keywords_list if w not in self.stop_words]
 
     def key_word_string(self, query_keys: List[str]) -> str:
-        # get keyword in string
         """
         This method is use to get keywords in string
         Parameters:

@@ -36,24 +36,13 @@ class GoogleApi:
             content = webURL.read()
             self.data = json.loads(content.decode('utf-8'))
             return True
-        except HTTPError as e:
-            traceError = 'Google map: search API request error: {}'.format(e)
-            logger.error(traceError)
-            return False
-        except KeyError as error:
-            # Output expected KeyErrors.
-            logger.error(error)
-            return False
-        except IndexError as error:
-            # Output expected IndexErrors.
-            logger.error(error)
-            return False
-        except JSONDecodeError as error:
-            # Output expected json decode errors.
+
+        except (HTTPError, KeyError, IndexError, JSONDecodeError) as error:
+            # Output expected error
             logger.error(error)
             return False
 
-    def gmap_address(self, query_keywords: str)  -> bool:
+    def gmap_address(self, query_keywords: str) -> bool:
         """ returns true if the request is good and then get the respective values else false"""
         if self.gmap_response():
             if 'status' in self.data.keys() and self.data['status'] == "OK":
@@ -63,5 +52,4 @@ class GoogleApi:
                 return True
             else:
                 return False
-        else:
-            return False
+        return False
