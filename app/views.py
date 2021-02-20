@@ -11,7 +11,7 @@ from .utils.answer_strings import AnswerString
 def index():
     """Main page of the web app"""
     # GOOGLE_JS_KEY to load google map
-    return render_template('index.html', gmap_api_key=app.config['GOOGLE_JS_KEY'])
+    return render_template('index.html', gmap_api_key=app.config['GOOGLE_GEO_KEY'])
 
 
 @app.route('/results/', methods=['GET', 'POST'])

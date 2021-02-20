@@ -1,13 +1,14 @@
 import os 
 import logging
-from decouple import config
 
 # see doc at http://flask.pocoo.org/docs/0.12/quickstart/ -> paragraph "SESSION"
 SECRET_KEY = os.urandom(24)
 # to get your JS API key go to https://developers.google.com/maps/documentation/javascript/get-api-key
-GOOGLE_JS_KEY = config('GOOGLE_JS_KEY')
+# GOOGLE_JS_KEY = "AIzaSyCijZFozLf948SNQzcGVkRaPZ-8wymgkkk"
+GOOGLE_JS_KEY = os.environ.get('GOOGLE_JS_KEY')
 # to get your GEO API key go to https://developers.google.com/maps/documentation/geocoding/get-api-key
-GOOGLE_GEO_KEY = config('GOOGLE_GEO_KEY')
+GOOGLE_GEO_KEY = os.environ.get('GOOGLE_GEO_KEY')
+# GOOGLE_GEO_KEY = "AIzaSyC-DXpHl3cl41Gn6nAAF-FTF4NVJxZgSI4"
 
 # config for logging
 logging_config = dict(
