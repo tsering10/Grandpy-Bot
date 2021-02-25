@@ -19,8 +19,7 @@ class GoogleApi:
 
         Parameters: url_key_words: string
         """
-        # self.key = app.config['GOOGLE_GEO_KEY']
-        self.key = 'AIzaSyC-DXpHl3cl41Gn6nAAF-FTF4NVJxZgSI4'
+        self.key = app.config['GOOGLE_GEO_KEY']
         self.query_key_string = url_key_words
         self.address = ""
         self.longitude = 0

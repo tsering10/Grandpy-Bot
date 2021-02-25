@@ -7,6 +7,7 @@ SECRET_KEY = os.urandom(24)
 # to get your GEO API key go to https://developers.google.com/maps/documentation/geocoding/get-api-key
 GOOGLE_GEO_KEY = os.environ.get('GOOGLE_GEO_KEY')
 
+
 # config for logging
 logging_config = dict(
     version=1,
